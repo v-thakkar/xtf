@@ -34,7 +34,7 @@ struct xen_add_to_physmap {
     unsigned int space;
 
     unsigned long idx;
-    unsigned long gfn;
+    unsigned long pfn;
 };
 
 #define XENMEM_exchange             11

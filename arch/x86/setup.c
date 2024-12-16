@@ -217,7 +217,7 @@ static void map_shared_info(void)
                 .domid = DOMID_SELF,
                 .space = XENMAPSPACE_shared_info,
                 .idx = 0,
-                .gfn = virt_to_gfn(&shared_info),
+                .pfn = virt_to_pfn(&shared_info),
             };
 
         rc = hypercall_memory_op(XENMEM_add_to_physmap, &xatp);

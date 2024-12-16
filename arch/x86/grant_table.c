@@ -46,11 +46,11 @@ int arch_map_gnttab(void)
             .domid = DOMID_SELF,
             .space = XENMAPSPACE_grant_table,
             .idx = 0,
-            .gfn = virt_to_gfn(gnttab_raw),
+            .pfn = virt_to_gfn(gnttab_raw),
         };
 
         for ( i = 0; !rc && i < (sizeof(gnttab_raw) / PAGE_SIZE);
-              ++i, ++xatp.idx, ++xatp.gfn )
+              ++i, ++xatp.idx, ++xatp.pfn )
             rc = hypercall_memory_op(XENMEM_add_to_physmap, &xatp);
     }
 
